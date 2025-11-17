@@ -1,0 +1,446 @@
+/* src/index.css */
+:root {
+  --bg-primary: #e8eef5;
+  --bg-secondary: #ffffff;
+  --card-bg: #ffffff;
+  --text-primary: #1a2332;
+  --text-secondary: #5a6c7d;
+  --border-color: #d0dae5;
+  
+  /* Colores pasteles para tarjetas */
+  --pastel-pink: #ffe8e8;
+  --pastel-green: #e8f8f0;
+  --pastel-purple: #f5e8ff;
+  --pastel-blue: #e8f3ff;
+  --pastel-yellow: #fff9e8;
+  --pastel-orange: #fff0e0;
+  
+  /* Colores para headers de tabla */
+  --header-blue: #4a9eff;
+  --header-red: #ff6b6b;
+  --header-orange: #ffa94d;
+  --header-cyan: #4ecdc4;
+  --header-yellow: #ffd93d;
+  --header-green: #6bcf7f;
+  --header-purple: #b197fc;
+  
+  /* Colores de texto vibrantes */
+  --text-green: #2d8659;
+  --text-purple: #7b4db8;
+  --text-orange: #d97706;
+  --text-blue: #2563eb;
+  --text-red: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(135deg, #dce4f0 0%, #e8eef5 100%);
+  color: var(--text-primary);
+  padding: 32px 20px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 40px 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 32px 0 20px 0;
+  text-transform: none;
+  border: none;
+  padding: 0;
+}
+
+/* Tarjetas de colores pasteles */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Tarjetas de fórmulas con colores pasteles */
+.formula-card {
+  background: var(--pastel-pink);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #ffb3b3;
+}
+
+.formula-card.green {
+  background: var(--pastel-green);
+  border-left-color: #6bcf7f;
+}
+
+.formula-card.purple {
+  background: var(--pastel-purple);
+  border-left-color: #b197fc;
+}
+
+.formula-card.blue {
+  background: var(--pastel-blue);
+  border-left-color: #4a9eff;
+}
+
+.formula-card.yellow {
+  background: var(--pastel-yellow);
+  border-left-color: #ffd93d;
+}
+
+.formula-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.formula-card .formula {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 8px 0;
+  font-style: italic;
+}
+
+.formula-card .result {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 12px 0 0 0;
+}
+
+.formula-card.green .result {
+  color: var(--text-green);
+}
+
+.formula-card.purple .result {
+  color: var(--text-purple);
+}
+
+/* Grid de tarjetas de fórmulas */
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.row.small { 
+  gap: 12px; 
+  align-items: center; 
+  margin-bottom: 12px; 
+}
+
+label { 
+  display: flex; 
+  flex-direction: column; 
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="number"], 
+select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  min-width: 120px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+input[type="number"]:focus, 
+select:focus {
+  border-color: var(--header-blue);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+button {
+  background: var(--header-blue);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 24px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  text-transform: none;
+}
+
+button:hover {
+  background: #3a8eef;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button.secondary {
+  background: var(--text-secondary);
+}
+
+button.secondary:hover {
+  background: #4a5c6d;
+}
+
+button.danger {
+  background: var(--header-red);
+}
+
+button.danger:hover {
+  background: #ff5b5b;
+}
+
+/* Tabla con headers coloridos */
+.table-scroll { 
+  overflow: auto; 
+  max-width: 100%;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+table { 
+  border-collapse: collapse; 
+  width: 100%; 
+  min-width: 600px;
+}
+
+table th, 
+table td { 
+  padding: 12px 16px; 
+  text-align: center;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+/* Headers de tabla con colores diferentes */
+table th:nth-child(1) {
+  background: var(--header-blue);
+}
+
+table th:nth-child(2) {
+  background: var(--header-cyan);
+}
+
+table th:nth-child(3) {
+  background: var(--header-red);
+}
+
+table th:nth-child(4) {
+  background: var(--header-orange);
+}
+
+table th:nth-child(5) {
+  background: var(--header-cyan);
+}
+
+table th:nth-child(6) {
+  background: var(--header-yellow);
+  color: var(--text-primary);
+}
+
+table th:nth-child(7) {
+  background: var(--header-green);
+}
+
+table th:nth-child(8) {
+  background: var(--header-purple);
+}
+
+table th:nth-child(9) {
+  background: var(--header-red);
+}
+
+table td {
+  color: var(--text-primary);
+  font-weight: 500;
+  background: white;
+}
+
+table tbody tr:hover {
+  background: #f8fafc;
+}
+
+table tbody tr:nth-child(even) td {
+  background: #fafbfd;
+}
+
+table tbody tr:nth-child(even):hover td {
+  background: #f8fafc;
+}
+
+.op-label { 
+  width: 140px; 
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+/* Info boxes con bordes de colores */
+.info-box {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--header-blue);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.info-box.positive {
+  border-left-color: var(--header-blue);
+  background: var(--pastel-blue);
+}
+
+.info-box.negative {
+  border-left-color: var(--header-purple);
+  background: var(--pastel-purple);
+}
+
+.info-box.highlight {
+  border-left-color: var(--header-orange);
+  background: var(--pastel-yellow);
+}
+
+.info-box h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-box .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-blue);
+  margin: 8px 0;
+}
+
+.info-box.positive .value {
+  color: var(--text-blue);
+}
+
+.info-box.negative .value {
+  color: var(--text-purple);
+}
+
+.info-box.highlight .value {
+  color: var(--text-orange);
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-blue { 
+  background: var(--pastel-blue); 
+  color: var(--text-blue); 
+}
+
+.badge-green { 
+  background: var(--pastel-green); 
+  color: var(--text-green); 
+}
+
+.badge-purple { 
+  background: var(--pastel-purple); 
+  color: var(--text-purple); 
+}
+
+.badge-orange { 
+  background: var(--pastel-orange); 
+  color: var(--text-orange); 
+}
+
+.badge-red { 
+  background: var(--pastel-pink); 
+  color: var(--text-red); 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 16px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .formula-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  input[type="number"], 
+  select {
+    min-width: 100%;
+  }
+}
